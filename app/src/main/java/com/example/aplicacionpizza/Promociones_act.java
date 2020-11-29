@@ -44,31 +44,35 @@ public class Promociones_act extends AppCompatActivity {
         int i = Integer.parseInt(valorEd.getText().toString());
         String promo = promocionEd.getText().toString().toUpperCase();
         if(itemSelect == 0){
-            tv.setText("Estimado "+promos.getCliente(itemSelect)
+            tv.setText("Estimado(a) "+promos.getCliente(itemSelect)
                     +" el final según promoción y envío es:");
-            tvsaldo.setText("$ "+promos.getCalculo(i, promo));
+            tvsaldo.setText(promos.getCalculo(i, promo));
         }else if(itemSelect == 1){
-            tv.setText("Estimado "+promos.getCliente(itemSelect)
+            tv.setText("Estimado(a) "+promos.getCliente(itemSelect)
                     +" el final según promoción y envío es:");
-            tvsaldo.setText("$ "+promos.getCalculo(i, promo));
+            tvsaldo.setText(promos.getCalculo(i, promo));
         }else if(itemSelect == 2){
-            tv.setText("Estimado "+promos.getCliente(itemSelect)
+            tv.setText("Estimado(a) "+promos.getCliente(itemSelect)
                     +" el final según promoción y envío es:");
-            tvsaldo.setText("$ "+promos.getCalculo(i, promo));
+            tvsaldo.setText(promos.getCalculo(i, promo));
         }else{
             tv.setText("Sin seleccion");
-            tvsaldo.setText("$ 0");
+            tvsaldo.setText("");
         }
     }
 
     public void botonCalculo(View v){
-        if (!valorEd.equals("") && !promocionEd.equals("")){
-            Clientes(spin.getSelectedItemPosition());
-        }else{
+        try {
+            if (!valorEd.equals("") && !promocionEd.equals("")) {
+                Clientes(spin.getSelectedItemPosition());
+            } else {
+                tv.setText("Ingrese los datos");
+                tv.setText("$");
+            }
+        }catch (Exception e){
             tv.setText("Ingrese los datos");
-            tv.setText("$");
+            tv.setText("");
         }
-
     }
 
 }

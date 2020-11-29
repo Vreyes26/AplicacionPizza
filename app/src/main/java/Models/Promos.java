@@ -15,15 +15,15 @@ public class Promos {
 
     }
 
-    public int getCalculo(int envio, String promo) {
+    public String getCalculo(int envio, String promo) {
         if (promo.equals("PIZZAS PROMO")){
-            return (envio+5990);
+            return "$"+(envio+5990);
         }else if (promo.equals("MASTER PIZZA")){
-            return (envio+12990);
+            return "$"+(envio+12990);
         }else if (promo.equals("PIZZA MAX")){
-            return (envio+18500);
+            return "$"+(envio+18500);
         }else{
-            return 0;
+            return "Promo no encontrada";
         }
 
     }
